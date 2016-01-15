@@ -1,9 +1,26 @@
 var express = require('express');
 var router = express.Router();
+var knex = require('knex')({
+  client: 'pg',
+  connection: {
+    database: 'blueit',
+    user: 'SaundieWeiss'
+  }
+});
 
-/* GET home page. */
+/* GET home page where all the posts will show up. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  knex('posts')
+    .select('*')
+    // .whereNotNull('title')
+    .then(function(posts) {
+      // res.json(posts);
+      res.render('index', {
+        title: 'BlueIT',
+        subtitle: 'Here\'s what the world is talking about!',
+        posts: posts
+      });
+    });
 });
 
 module.exports = router;

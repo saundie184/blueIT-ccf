@@ -1,21 +1,15 @@
-<h1>{{title}}</h1>
-<h2>{{subtitle}}</h2>
-{{#each posts}}
+<h1>BlueIT Article</h1>
+<h2>{{post.title}}</h2>
 <div>
   <table>
     <tr>
       <td>
-        Topic: {{this.topic}}
+        Topic: {{post.topic}}
       </td>
     </tr>
     <tr>
       <td>
-        Title: {{this.title}}
-      </td>
-    </tr>
-    <tr>
-      <td>
-        Text: {{this.text}}
+        Text: {{post.text}}
       </td>
     </tr>
     <!-- <tr>
@@ -25,4 +19,3 @@
     </tr> -->
   </table>
 </div>
-{{/each}}
