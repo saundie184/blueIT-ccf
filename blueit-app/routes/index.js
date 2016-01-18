@@ -14,11 +14,13 @@ router.get('/', function(req, res, next) {
     .select('*')
     // .whereNotNull('title')
     .then(function(posts) {
-      // res.json(posts);
       res.render('index', {
         title: 'BlueIT',
         subtitle: 'Here\'s what the world is talking about!',
-        posts: posts
+        posts: posts,
+        id: posts.id,
+        cookies: req.session.user,
+        user: req.session
       });
     });
 });

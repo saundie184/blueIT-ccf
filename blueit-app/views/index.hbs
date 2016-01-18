@@ -1,28 +1,39 @@
 <h1>{{title}}</h1>
 <h2>{{subtitle}}</h2>
-{{#each posts}}
+
 <div>
-  <table>
-    <tr>
-      <td>
-        Topic: {{this.topic}}
-      </td>
-    </tr>
-    <tr>
-      <td>
-        Title: {{this.title}}
-      </td>
-    </tr>
-    <tr>
-      <td>
-        Text: {{this.text}}
-      </td>
-    </tr>
-    <!-- <tr>
-      <td>
-        User: {{this.username}}
-      </td>
-    </tr> -->
+  <table class='table table-hover'>
+    <thead>
+      <th>
+        Topic
+      </th>
+      <th>
+        Title
+      </th>
+      <th>
+        Article
+      </th>
+      <th>
+        Username
+      </th>
+    </thead>
+    {{#each posts}}
+        <tr>
+          <td>
+            {{this.topic}}
+          </td>
+          <td>
+            <a href="/auth/{{id}}">{{this.title}}</a>
+          </td>
+          <td>
+            {{this.text}}
+          </td>
+          <td>
+            {{this.username}}
+          </td>
+        </tr>
+
+    {{/each}}
+
   </table>
 </div>
-{{/each}}
